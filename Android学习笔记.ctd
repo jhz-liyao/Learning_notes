@@ -1351,4 +1351,19 @@ Uri uri = Uri.</rich_text><rich_text style="italic">parse</rich_text><rich_text>
         </rich_text><rich_text>}
         </rich_text><rich_text foreground="#cc7832">return true;
     </rich_text><rich_text>}
-}</rich_text></node></node></cherrytree>
+}</rich_text></node><node name="自定义控件" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>//自定义控件增加属性
+//1.</rich_text><rich_text scale="h3">在res/values文件下添加一个attrs.xml文件</rich_text><rich_text> 
+</rich_text><rich_text foreground="#e8bf6a">&lt;?</rich_text><rich_text foreground="#bababa">xml version=</rich_text><rich_text foreground="#6a8759">&quot;1.0&quot; </rich_text><rich_text foreground="#bababa">encoding=</rich_text><rich_text foreground="#6a8759">&quot;utf-8&quot;</rich_text><rich_text foreground="#e8bf6a">?&gt;
+&lt;resources&gt;
+    &lt;declare-styleable </rich_text><rich_text foreground="#bababa">name=</rich_text><rich_text foreground="#6a8759">&quot;VerticalBar&quot;</rich_text><rich_text foreground="#e8bf6a">&gt;
+        &lt;attr </rich_text><rich_text foreground="#bababa">name=</rich_text><rich_text foreground="#6a8759">&quot;max&quot; </rich_text><rich_text foreground="#bababa">format=</rich_text><rich_text foreground="#6a8759">&quot;integer&quot;</rich_text><rich_text foreground="#e8bf6a">&gt;&lt;/attr&gt;
+    &lt;/declare-styleable&gt;
+&lt;/resources&gt;</rich_text><rich_text>
+//2.增加xml命名空间
+</rich_text><rich_text foreground="#bababa">xmlns:</rich_text><rich_text foreground="#9876aa">custom</rich_text><rich_text foreground="#bababa">=</rich_text><rich_text foreground="#6a8759">&quot;http://schemas.android.com/apk/res-auto&quot;</rich_text><rich_text>
+//3.控件中属性获取
+TypedArray typedArray = context.obtainStyledAttributes(attrs</rich_text><rich_text foreground="#cc7832">, </rich_text><rich_text>R.styleable.</rich_text><rich_text foreground="#9876aa" style="italic">VerticalBar</rich_text><rich_text foreground="#9876aa">)</rich_text><rich_text foreground="#cc7832">;
+</rich_text><rich_text foreground="#9876aa">max </rich_text><rich_text>= typedArray.getInt(R.styleable.</rich_text><rich_text foreground="#9876aa" style="italic">VerticalBar_max</rich_text><rich_text foreground="#cc7832">, </rich_text><rich_text foreground="#6897bb">100</rich_text><rich_text>)</rich_text><rich_text foreground="#cc7832">;</rich_text><rich_text>
+
+/*---------------draw绘图方法------------*/
+invalidate()</rich_text><rich_text foreground="#cc7832">;</rich_text><rich_text>//使view无效后安卓会重绘 用于刷新控件</rich_text></node></node></cherrytree>
